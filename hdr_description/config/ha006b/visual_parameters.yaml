@@ -1,0 +1,113 @@
+mesh_files:
+  base:
+    visual:
+      mesh: 
+        package: hdr_description
+        path : meshes/ha006b/visual/base_body.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/base_body.stl
+
+  shoulder:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/lower_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/lower_frame.stl
+
+  upper_arm:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/upper_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/upper_frame.stl
+      mesh_files:
+
+  forearm:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/arm_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/arm_frame.stl
+
+  wrist_1:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/arm_pipe.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/arm_pipe.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0
+
+  wrist_2:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/wrist_body.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/wrist_body.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0
+
+  wrist_3:
+    visual:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/visual/flange.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh: 
+        package: hdr_description
+        path: meshes/ha006b/collision/flange.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0

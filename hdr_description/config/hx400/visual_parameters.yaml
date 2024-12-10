@@ -1,0 +1,170 @@
+mesh_files:
+  base:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/base_body.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/base_body.stl
+
+  shoulder:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/lower_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/lower_frame.stl
+
+  upper_arm:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/upper_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/upper_frame.stl
+
+  forearm:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/arm_frame.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/arm_frame.stl
+
+  wrist_1:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/arm_pipe.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/arm_pipe.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0
+
+  wrist_2:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/wrist_body.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/wrist_body.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0
+
+  wrist_3:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/flange.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/flange.stl
+      origin:
+        xyz: [0, 0, 0]
+        rpy: [0, 0, 0]
+    visual_offset: 0
+
+  # Parallel Mechanism Components
+  hinge:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/p_hinge.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/p_hinge.stl
+    visual_offset: 0
+
+  v_link:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/p_link.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/p_link.stl
+    visual_offset: 0
+
+  p_shaft:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/p_shaft.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/p_shaft.stl
+    visual_offset: 0
+
+  p_tube:
+    visual:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/visual/p_tube.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hdr_description
+        path: meshes/hx400/collision/p_tube.stl
+    visual_offset: 0
+    

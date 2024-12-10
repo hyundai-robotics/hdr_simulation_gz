@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
+    <!-- robot name parameter -->
+    <xacro:arg name="name" default="hdr"/>
+    
+    <!-- possible 'hdr_type' values: ha006b, hh7, hh020, hs220_02, hx400 -->
+    <!-- the default value should raise an error in case this was called without defining the type -->
+    <xacro:arg name="hdr_type" default="hx400"/>
+    
+     <!-- Convert hdr_type argument to a property -->
+    <xacro:property name="hdr_type" value="$(arg hdr_type)" />
+
+    <!-- parameters -->
+    <xacro:arg name="tf_prefix" default="" />
+    <xacro:arg name="joint_limit_params" default="$(find hdr_description)/config/$(arg hdr_type)/joint_limits.yaml"/>
+    <xacro:arg name="kinematics_params" default="$(find hdr_description)/config/$(arg hdr_type)/default_kinematics.yaml"/>
+    <xacro:arg name="physical_params" default="$(find hdr_description)/config/$(arg hdr_type)/physical_parameters.yaml"/>
+    <xacro:arg name="visual_params" default="$(find hdr_description)/config/$(arg hdr_type)/visual_parameters.yaml"/>
+    <xacro:arg name="transmission_hw_interface" default=""/>
+    <xacro:arg name="safety_limits" default="false"/>
+    <xacro:arg name="safety_pos_margin" default="0.15"/>
+    <xacro:arg name="safety_k_position" default="20"/>
+    <!-- Simulation parameters -->
+    <xacro:arg name="use_fake_hardware" default="false" />
+    <xacro:arg name="sim_gazebo" default="false" />
+    <xacro:arg name="sim_ignition" default="false" />
+    <xacro:arg name="simulation_controllers" default="" />
+
+    <xacro:arg name="use_conveyor_belt" default="false"/>
+
+    <xacro:property name="hdr_type_lower" value="${hdr_type.lower()}"/>
+    <xacro:if value="${'hx' in hdr_type_lower}">
+        <xacro:property name="use_hx_model" value="true"/>
+    </xacro:if>
+    <xacro:unless value="${'hx' in hdr_type_lower}">
+        <xacro:property name="use_hx_model" value="false"/>
+    </xacro:unless>
+
+    <!-- initial position for simulations (Fake Hardware, Gazebo, Ignition) -->
+    <xacro:arg name="initial_positions_file" default="$(find hdr_description)/config/initial_positions.yaml"/>
+
+    <!-- convert to property to use substitution in function -->
+    <xacro:property name="initial_positions_file" default="$(arg initial_positions_file)"/>
+    
+    <!-- create link fixed to the "world" -->
+    <link name="world" />
+
+    <!-- import main macro for other robot types -->
+    <xacro:include filename="$(find hdr_description)/urdf/hdr_macro.xacro"/>
+        
+    <!-- arm -->
+    <xacro:hdr_robot
+        name="$(arg name)"
+        tf_prefix="$(arg tf_prefix)"
+        parent="world"
+        joint_limits_parameters_file="$(arg joint_limit_params)"
+        kinematics_parameters_file="$(arg kinematics_params)"
+        physical_parameters_file="$(arg physical_params)"
+        visual_parameters_file="$(arg visual_params)"
+        transmission_hw_interface="$(arg transmission_hw_interface)"
+        safety_limits="$(arg safety_limits)"
+        safety_pos_margin="$(arg safety_pos_margin)"
+        safety_k_position="$(arg safety_k_position)"
+        use_fake_hardware="$(arg use_fake_hardware)"
+        sim_gazebo="$(arg sim_gazebo)"
+        sim_ignition="$(arg sim_ignition)"
+        initial_positions="${xacro.load_yaml(initial_positions_file)}"
+        use_conveyor_belt="$(arg use_conveyor_belt)"
+        use_hx_model="${use_hx_model}"
+        >
+        <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
+    </xacro:hdr_robot>
+
+    <xacro:if value="$(arg sim_gazebo)">
+        <!-- Gazebo plugins -->
+        <gazebo reference="world">
+        </gazebo>
+        <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(arg simulation_controllers)</parameters>
+        </plugin>
+        </gazebo>
+    </xacro:if>
+
+    <xacro:if value="$(arg sim_ignition)">
+        <!-- Gazebo plugins -->
+        <gazebo reference="world">
+        </gazebo>
+        <gazebo>
+            <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+            <parameters>$(arg simulation_controllers)</parameters>
+            <controller_manager_node_name>$(arg tf_prefix)controller_manager</controller_manager_node_name>
+            </plugin>
+        </gazebo>
+    </xacro:if>
+
+</robot>

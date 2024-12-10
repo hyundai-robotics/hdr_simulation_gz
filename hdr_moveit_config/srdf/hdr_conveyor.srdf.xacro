@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
+
+  <!-- robot name parameter -->
+  <xacro:arg name="name" default="hdr"/>
+  <!-- parameters -->
+  <xacro:arg name="prefix" default="" />
+  <!-- conveyor belt parameter -->
+  <xacro:arg name="use_conveyor_belt" default="true" />
+
+  <xacro:include filename="$(find hdr_moveit_config)/srdf/hdr_macro.srdf.xacro"/>
+
+  <xacro:hdr_srdf name="$(arg name)" prefix="$(arg prefix)" use_conveyor_belt="$(arg use_conveyor_belt)"/>
+
+</robot>

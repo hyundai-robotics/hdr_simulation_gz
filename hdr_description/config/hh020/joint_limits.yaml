@@ -1,0 +1,61 @@
+joint_limits:
+  shoulder_pan_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 962.91 #0.8*148.597826*8.1
+    max_position: !degrees  185.0
+    max_velocity: !degrees  190.0
+    min_position: !degrees -185.0
+  shoulder_lift_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 1043.28 #0.8*161.0*8.1
+    max_position: !degrees  195.0
+    max_velocity: !degrees  180.0
+    min_position: !degrees  -70.0
+  elbow_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 538.056 #0.8*141.0*4.77
+    max_position: !degrees  180.0
+    max_velocity: !degrees  190.0
+    min_position: !degrees -80.0
+  wrist_1_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 44.91 #0.8*87.72*0.64
+    max_position: !degrees  195.0
+    max_velocity: !degrees  380.0
+    min_position: !degrees -195.0
+  wrist_2_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 43.52 #0.8*85*0.64
+    max_position: !degrees  135.0
+    max_velocity: !degrees  380.0
+    min_position: !degrees -135.0
+  wrist_3_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 25.6 #0.8*50*0.64
+    max_position: !degrees  360.0
+    max_velocity: !degrees  600.0
+    min_position: !degrees -360.0

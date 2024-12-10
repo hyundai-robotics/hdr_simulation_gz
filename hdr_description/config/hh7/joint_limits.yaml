@@ -1,0 +1,62 @@
+joint_limits:
+#Effort value is calculated as "Motor_Rated_Torque x Reduction Ratio x Applied Torque Coefficient(80%)".
+  shoulder_pan_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 138.6 #90.740*0.8*1.91
+    max_position: !degrees  170.0
+    max_velocity: !degrees  375.0
+    min_position: !degrees -170.0
+  shoulder_lift_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 162.9 #106.667*0.8*1.91
+    max_position: !degrees  180.0
+    max_velocity: !degrees  315.0
+    min_position: !degrees  -55.0
+  elbow_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 81.3 #80*0.8*1.27
+    max_position: !degrees  213.0
+    max_velocity: !degrees  410.0
+    min_position: !degrees  -70.0
+  wrist_1_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 19.1 #75*0.8*0.318
+    max_position: !degrees  190.0
+    max_velocity: !degrees  550.0
+    min_position: !degrees -190.0
+  wrist_2_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 16.3 #64*0.8*0.318
+    max_position: !degrees  135.0
+    max_velocity: !degrees  550.0
+    min_position: !degrees -135.0
+  wrist_3_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 10.4 #40.857 *0.8*0.318
+    max_position: !degrees  360.0
+    max_velocity: !degrees  1000.0
+    min_position: !degrees -360.0

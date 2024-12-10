@@ -1,0 +1,81 @@
+dh_parameters:
+  #uinit : m
+  a1: 0.312 # additional item
+  d1: 0.608
+  a2: 1.1
+  a3: 0.23
+  d4: 1.25
+  d5: 0.0
+  d6: 0.22
+
+#offsets do not exist
+offsets:
+  shoulder_offset: 0.176
+  elbow_offset: 0.040
+
+inertia_parameters:
+  base_mass: 108.141
+  shoulder_mass: 293.205
+  upper_arm_mass: 125.721
+  upper_arm_inertia_offset: 0.175 # offset does not exist 
+  forearm_mass: 237.861
+  wrist_1_mass: 14.456
+  wrist_2_mass: 38.983
+  wrist_3_mass: 10.000   #값이 0이라서 확인 필요
+
+  #radius and link cannot be defined
+  shoulder_radius: x0.060
+  upper_arm_radius: x0.054 
+  elbow_radius: x0.060
+  forearm_radius: x0.040
+  wrist_radius: x0.045
+
+  #협동로봇이 아닌 일반적인 산업용에엇는 각 Link별 원통형으로 값을 찾기 어려움
+  links:
+    base:
+      radius: 0.075
+      length: 0.038
+    shoulder:
+      radius: 0.075
+      length: 0.178
+    upperarm:
+      radius: 0.075
+      length: 0.4784
+    forearm:
+      radius: 0.075
+      length: 0.36
+    wrist_1:
+      radius: 0.075
+      length: 0.12
+    wrist_2:
+      radius: 0.075
+      length: 0.12
+    wrist_3:
+      radius: 0.045
+      length: 0.05
+
+  center_of_mass:
+    shoulder_cog:
+      x: 0.164
+      y: -0.006
+      z: 0.490
+    upper_arm_cog:
+      x: 0.3744
+      y: -0.2066
+      z: 1.0579
+    forearm_cog:
+      x: 0.499
+      y: -0.036
+      z: 1.828
+    wrist_1_cog:
+      x: 1.459
+      y: -0.003
+      z: 1.938
+    wrist_2_cog:
+      x: 1.627
+      y: -0.030
+      z: 1.938
+    wrist_3_cog:
+      x: 1.782
+      y: 0.000
+      z: 1.938

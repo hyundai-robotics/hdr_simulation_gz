@@ -1,0 +1,63 @@
+joint_limits:
+  # Effort value is calculated as "Motor_Rated_Torque x Reduction Ratio X applied Torque Cofficient(80%)"
+  # shoulder lift , eblow joint의 값은 한번 확인이 필요로 함.
+  shoulder_pan_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 4855.2
+    max_position: !degrees  180.0
+    max_velocity: !degrees  120.0
+    min_position: !degrees -180.0
+  shoulder_lift_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 5132.6
+    max_position: !degrees  155.0
+    max_velocity: !degrees  105.0
+    min_position: !degrees  10.0
+  elbow_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 5132.6
+    max_position: !degrees  190.0
+    max_velocity: !degrees  110.0
+    min_position: !degrees  -80.0
+  wrist_1_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 1086.8
+    max_position: !degrees  360.0
+    max_velocity: !degrees  145.0
+    min_position: !degrees -360.0
+  wrist_2_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 1099.7 
+    max_position: !degrees  128.0
+    max_velocity: !degrees  145.0
+    min_position: !degrees -128.0
+  wrist_3_joint:
+    # acceleration limits are not publicly available
+    has_acceleration_limits: false
+    has_effort_limits: true
+    has_position_limits: true
+    has_velocity_limits: true
+    max_effort: 725.8
+    max_position: !degrees  360.0
+    max_velocity: !degrees  220.0
+    min_position: !degrees -360.0

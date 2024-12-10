@@ -1,0 +1,37 @@
+controller_names:
+  - scaled_joint_trajectory_controller
+  - joint_trajectory_controller
+  - conveyor_controller  # 새로운 컨트롤러 추가
+
+scaled_joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - conveyor_to_robot_base  # 컨베이어 벨트 조인트 추가
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+
+
+joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: false
+  joints:
+    - conveyor_to_robot_base  # 컨베이어 벨트 조인트 추가
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+
+# 컨베이어 벨트를 위한 새로운 컨트롤러 추가
+conveyor_controller:
+  type: position_controllers/JointPositionController
+  joint: conveyor_to_robot_base
+  pid: {p: 100.0, i: 0.01, d: 10.0}
