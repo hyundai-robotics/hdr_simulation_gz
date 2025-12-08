@@ -106,7 +106,7 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
 
 | Argument name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `robot_model` | string | `ha006b` | HDR robot model to use. Change `robot_model` to one of the supported models [`ha006b`, `hdf7_9`, `hdf8_8`, `hdr50_22`, `hdr220_26`, `hh020`] |
+| `robot_model` | string | `ha006b` | HDR robot model to use. Change `robot_model` to one of the supported models [`ha006b`, `hdf7_9`, `hdf8_8`, `hdr50_22`, `hdr220_26`, `hh020`, `hdr35_20`] |
 | `use_sim` | bool | `true` | Enables simulation mode using the `gz_ros2_control/GazeboSimSystem` plugin, typically for integration with Ignition Gazebo. The `use_sim_time` parameter is also set to true to synchronize with simulation time |
 | `runtime_config_package` | string | `hdr_simulation_gz` | Name of the package providing controllers configuration |
 | `controllers_file` | string | `hdr_controllers.yaml` | YAML file name defining which controllers to load |
