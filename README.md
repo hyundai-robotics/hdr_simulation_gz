@@ -6,7 +6,7 @@
 - [Package Structure](#package-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Trouble Shooting](#trouble-shooting)
+- [Examples](#examples)
 - [Package Metadata](#package-metadata)
 
 ---
@@ -26,6 +26,7 @@ It includes launch scripts and configuration files for spawning robot models and
 | --------- | ----------- |
 | `config/` | YAML configuration files for ros2 controllers. |
 | `launch/` | Launch files for running simulation nodes and controllers. |
+| `examples/` | Example launch files, configs, and scripts for robot + gripper setups. |
 
 ---
 
@@ -114,6 +115,37 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
 | `description_file` | string | `hdr.urdf.xacro` | URDF/XACRO file to use for the robot description |
 | `initial_positions_file` | string | `initial_positions.yaml` | YAML file specifying the initial joint positions of the robot, located in the `{robot_model}_moveit_config/config/` directory |
 | `kinematics_file` | string | `kinematics.yaml` | YAML file name defining the robot kinematics, located in the `{robot_model}_moveit_config/config/` directory |
+
+---
+
+## Examples
+
+The `examples/` directory contains pre-configured setups for HDF7-9 robot with various grippers.
+
+### Directory Structure
+
+```
+examples/
+├── world/                     # Gazebo world files
+│   └── table_world.sdf
+└── moveit_waypoints.py        # MoveIt waypoints demo script
+```
+
+### MoveIt Waypoints Example
+
+This example demonstrates moving a robot through multiple waypoints using MoveIt.
+
+#### 1. Launch MoveIt with robot
+
+```bash
+ros2 launch hdr_simulation_gz hdr_gz_moveit.launch.py
+```
+
+#### 2. Run waypoints demo (in another terminal)
+
+```bash
+python3 src/hdr_simulation_gz/examples/moveit_waypoints.py
+```
 
 ---
 

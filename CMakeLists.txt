@@ -20,7 +20,7 @@ find_package(moveit_core REQUIRED)
 
 find_package(xacro REQUIRED)
 
-install(DIRECTORY config launch
+install(DIRECTORY config launch examples
   DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
