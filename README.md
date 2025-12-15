@@ -6,7 +6,7 @@
 - [Package Structure](#package-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Trouble Shooting](#trouble-shooting)
+- [Examples](#examples)
 - [Package Metadata](#package-metadata)
 
 ---
@@ -26,6 +26,7 @@ It includes launch scripts and configuration files for spawning robot models and
 | --------- | ----------- |
 | `config/` | YAML configuration files for ros2 controllers. |
 | `launch/` | Launch files for running simulation nodes and controllers. |
+| `examples/` | Example launch files, configs, and scripts for robot + gripper setups. |
 
 ---
 
@@ -114,6 +115,72 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
 | `description_file` | string | `hdr.urdf.xacro` | URDF/XACRO file to use for the robot description |
 | `initial_positions_file` | string | `initial_positions.yaml` | YAML file specifying the initial joint positions of the robot, located in the `{robot_model}_moveit_config/config/` directory |
 | `kinematics_file` | string | `kinematics.yaml` | YAML file name defining the robot kinematics, located in the `{robot_model}_moveit_config/config/` directory |
+
+---
+
+## Examples
+
+The `examples/` directory contains pre-configured setups for HDF7-9 robot with various grippers.
+
+### Directory Structure
+
+```
+examples/
+├── config/                    # MoveIt and controller configurations
+│   ├── hdf7_9_onrobot_rg6.srdf
+│   ├── hdf7_9_onrobot_rg6_controllers.yaml
+│   ├── hdf7_9_onrobot_rg6_kinematics.yaml
+│   └── ...
+├── launch/                    # Launch files for robot + gripper combinations
+│   ├── hdf7_9_onrobot_rg2_gz.launch.py
+│   ├── hdf7_9_onrobot_rg6_gz.launch.py
+│   ├── hdf7_9_onrobot_rg6_table_gz.launch.py
+│   ├── hdf7_9_onrobot_rg6_moveit_gz.launch.py
+│   ├── hdf7_9_robotiq_2f_85_gz.launch.py
+│   └── hdf7_9_robotiq_2f_140_gz.launch.py
+├── world/                     # Gazebo world files
+│   └── table_world.sdf
+├── pick_and_place_cubes.py    # Pick and place demo script
+└── moveit_waypoints.py        # MoveIt waypoints demo script
+```
+
+### Pick and Place Example
+
+<div align="center"><img src=".doc/pick_and_place.png" alt="HDR gazebo" style="width: 70%;"/></div>
+
+#### 1. Launch robot with gripper on table
+
+```bash
+ros2 launch hdr_simulation_gz hdf7_9_onrobot_rg6_table_gz.launch.py launch_rviz:=false
+```
+
+#### 2. Launch MoveIt (in another terminal)
+
+```bash
+ros2 launch hdr_simulation_gz hdf7_9_onrobot_rg6_moveit_gz.launch.py
+```
+
+#### 3. Run pick and place demo (in another terminal)
+
+```bash
+python3 src/hdr_simulation_gz/examples/pick_and_place_cubes.py
+```
+
+### MoveIt Waypoints Example
+
+This example demonstrates moving a robot through multiple waypoints using MoveIt.
+
+#### 1. Launch MoveIt with robot
+
+```bash
+ros2 launch hdr_simulation_gz hdr_gz_moveit.launch.py
+```
+
+#### 2. Run waypoints demo (in another terminal)
+
+```bash
+python3 src/hdr_simulation_gz/examples/moveit_waypoints.py
+```
 
 ---
 

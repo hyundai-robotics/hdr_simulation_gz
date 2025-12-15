@@ -1,0 +1,23 @@
+# MoveIt controller configuration for HDF7-9 with OnRobot RG6 gripper
+controller_names:
+  - joint_trajectory_controller
+  - gripper_controller
+
+joint_trajectory_controller:
+  type: FollowJointTrajectory
+  action_ns: follow_joint_trajectory
+  default: true
+  joints:
+    - j1
+    - j2
+    - j3
+    - j4
+    - j5
+    - j6
+
+gripper_controller:
+  type: GripperCommand
+  action_ns: gripper_cmd
+  default: true
+  joints:
+    - gripper_finger_joint

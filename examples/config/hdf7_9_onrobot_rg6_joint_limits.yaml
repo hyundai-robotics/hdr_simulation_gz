@@ -1,0 +1,44 @@
+# Joint limits configuration for HDF7-9 with OnRobot RG6 gripper
+# Values higher than 0.2 may cause unstable behavior in simulation
+
+default_velocity_scaling_factor: 0.1
+default_acceleration_scaling_factor: 0.1
+
+joint_limits:
+  # Arm joints
+  j1:
+    has_velocity_limits: true
+    max_velocity: 6.544
+    has_acceleration_limits: true
+    max_acceleration: 26.176
+  j2:
+    has_velocity_limits: true
+    max_velocity: 5.497
+    has_acceleration_limits: true
+    max_acceleration: 18.3233
+  j3:
+    has_velocity_limits: true
+    max_velocity: 7.155
+    has_acceleration_limits: true
+    max_acceleration: 23.85
+  j4:
+    has_velocity_limits: true
+    max_velocity: 9.599
+    has_acceleration_limits: true
+    max_acceleration: 95.99
+  j5:
+    has_velocity_limits: true
+    max_velocity: 9.599
+    has_acceleration_limits: true
+    max_acceleration: 95.99
+  j6:
+    has_velocity_limits: true
+    max_velocity: 17.453
+    has_acceleration_limits: true
+    max_acceleration: 174.53
+  # Gripper joint
+  gripper_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2.0
+    has_acceleration_limits: true
+    max_acceleration: 5.0
